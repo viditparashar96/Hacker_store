@@ -1,4 +1,5 @@
 import Banner from "@/components/home/Banner";
+import SearchBar from "@/components/home/SearchBar";
 import Footer from "@/components/shared/Footer";
 import { Button } from "@/components/ui/button";
 import {
@@ -110,7 +111,6 @@ const Home = () => {
       return product;
     });
 
-    // Update products and reset formData
     setProducts(newProducts);
     setOriginalProducts(newProducts);
     setFormData({ name: "", price: "", image: "" });
@@ -187,20 +187,10 @@ const Home = () => {
                     </DialogFooter>
                   </DialogContent>
                 </Dialog>
-                <Input
-                  type="email"
-                  className="w-[300px] hidden md:block"
-                  placeholder="Search For Products...."
-                  onChange={handleSearchFilter}
-                />
+                <SearchBar handleSearchFilter={handleSearchFilter} type="pc" />
               </div>
             </div>
-            <Input
-              type="email"
-              className="w-full block md:hidden"
-              placeholder="Search For Products...."
-              onChange={handleSearchFilter}
-            />
+            <SearchBar handleSearchFilter={handleSearchFilter} type="mobile" />
           </nav>
 
           {/* Displaying Products */}
